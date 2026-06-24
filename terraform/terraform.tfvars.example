@@ -1,0 +1,27 @@
+# Salin file ini menjadi terraform.tfvars dan isi nilainya
+# JANGAN commit terraform.tfvars ke Git!
+
+project_name    = "api-proyek"
+environment     = "production"
+aws_region      = "ap-southeast-1"
+
+# Networking
+vpc_cidr           = "10.0.0.0/16"
+availability_zones = ["ap-southeast-1a", "ap-southeast-1b"]
+
+# Database
+db_name           = "api_db"
+db_username       = "postgres"
+db_password       = "GANTI_PASSWORD_DATABASE_YANG_KUAT"
+db_instance_class = "db.t3.micro"
+
+# Container
+container_image = "123456789012.dkr.ecr.ap-southeast-1.amazonaws.com/api-proyek:latest"
+container_port  = 3000
+task_cpu        = 256
+task_memory     = 512
+desired_count   = 1
+
+# Secrets
+jwt_secret     = "GANTI_DENGAN_STRING_ACAK_MINIMAL_32_KARAKTER"
+jwt_expires_in = "7d"
