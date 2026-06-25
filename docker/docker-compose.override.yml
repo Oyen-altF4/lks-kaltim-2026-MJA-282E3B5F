@@ -1,0 +1,13 @@
+# Override untuk environment development
+# File ini otomatis digabung dengan docker-compose.yml saat: docker compose up
+version: '3.9'
+
+services:
+  api:
+    build:
+      target: builder  # gunakan stage builder agar bisa dev
+    command: ["node_modules/.bin/nodemon", "src/app.js"]
+    volumes:
+      - ./src:/app/src  # hot-reload: perubahan kode langsung terefleksi
+    environment:
+      NODE_ENV: development
